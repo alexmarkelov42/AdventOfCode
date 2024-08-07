@@ -20,7 +20,8 @@ func main() {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		line := scanner.Text()
-		result := isGameValid(line)
+		cubesBytes := getSetsOfCubes(line)
+		result := isGameValid(cubesBytes)
 		if result == true {
 			sum += getGameId(line)
 		}
@@ -35,18 +36,10 @@ func getGameId(input string) int {
 	return GameId
 }
 
-func isGameValid(line string) bool {
+func getSetsOfCubes(line string) [][]byte {
 	regexpListOfCubes, _ := regexp.Compile("([0-9]+ (blue|green|red)){1}")
 	listOfCubes := regexpListOfCubes.FindAll([]byte(line), -1)
-	for _, token := range listOfCubes {
-		number := getNumber(token)
-		color := getColor(token)
-		result := isResultValid(number, color)
-		if result == false {
-			return false
-		}
-	}
-	return true
+	return listOfCubes
 }
 
 func getNumber(token []byte) int {
@@ -76,6 +69,18 @@ func isResultValid(number int, color string) bool {
 			if number > res.amount {
 				return false
 			}
+		}
+	}
+	return true
+}
+
+func isGameValid(cubes [][]byte) bool {
+	for _, token := range cubes {
+		number := getNumber(token)
+		color := getColor(token)
+		result := isResultValid(number, color)
+		if result == false {
+			return false
 		}
 	}
 	return true
