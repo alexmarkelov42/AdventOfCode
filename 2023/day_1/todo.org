@@ -1,0 +1,17 @@
+* part 1
+** Read file
+** sum = 0
+** for each string of the file:
+- search the string from 0 to end for the first digit (save as A)
+- search the string from end to 0 for the first digit (save as B)
+- sum += A * 10 + B
+* part2
+** Read file
+** sum = 0
+** f 
+
+
+* eightmrv1eight
+
+1) ind = 0; digit = 8
+2) ind = 9; digit = 8
