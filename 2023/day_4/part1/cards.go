@@ -1,4 +1,4 @@
-package main
+package cards
 
 import (
 	"bufio"
@@ -13,16 +13,7 @@ import (
 	"unicode"
 )
 
-func main() {
-	filepath := getFilePath("Input.txt")
-	winNumbersStr, cardNumbersStr := getDataFromFile(filepath)
-	winNumbers := convertToInt(winNumbersStr)
-	cardNumbers := convertToInt(cardNumbersStr)
-	totalPoints := getTotalPoints(winNumbers, cardNumbers)
-	fmt.Println(totalPoints)
-}
-
-func convertToInt(winNumbersStr []string) [][]int {
+func ConvertToInt(winNumbersStr []string) [][]int {
 	arr := make([][]int, len(winNumbersStr))
 	for i, str := range winNumbersStr {
 		var(
@@ -66,28 +57,33 @@ func findNextDigit(str string, ind int) (int, error) {
 	return ind, nil
 }
 
-func getTotalPoints(winNumbers, cardNumbers [][]int) int {
+func GetTotalPoints(winNumbers, cardNumbers [][]int) int {
 	var (
 		pointsSum = 0
 	)
 	for i := 0; i < len(winNumbers); i++ {
-		points := getCardPoints(winNumbers[i], cardNumbers[i])
+		numOfMatches := GetNumberOfMatches(winNumbers[i], cardNumbers[i])
+		points := GetCardPoints(numOfMatches)
 		pointsSum += points
 	}
 	return pointsSum
 }
 
-func getCardPoints(winNumbers, cardNumbers []int) int {
-	var points = 0
+func GetNumberOfMatches(winNumbers, cardNumbers []int) int {
+	var matches = 0
 	for _, num := range cardNumbers {
 		if slices.Contains(winNumbers, num) {
-			points++
+			matches++
 		}
-	}
-	return int(math.Pow(2, float64(points-1)))
+	}	
+	return matches
 }
 
-func getDataFromFile(filepath string) ([]string, []string) {
+func GetCardPoints(matches int) int {
+	return int(math.Pow(2, float64(matches-1)))
+}
+
+func GetDataFromFile(filepath string) ([][]int, [][]int) {
 	file, err := os.Open(filepath)
 	if err != nil {
 		log.Fatal(err)
@@ -105,13 +101,13 @@ func getDataFromFile(filepath string) ([]string, []string) {
 		winNumbers = append(winNumbers, nums[0])
 		cardNumbers = append(cardNumbers, nums[1])
 	}
-	return winNumbers, cardNumbers
+	return ConvertToInt(winNumbers), ConvertToInt(cardNumbers)
 }
 
-func getFilePath(inputName string) string {
+func GetFilePath(inputName string) string {
 	wd, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
 	}
-	return filepath.Dir(wd) + "/" + inputName
+	return filepath.Dir(filepath.Dir(wd)) + "/" + inputName
 }
