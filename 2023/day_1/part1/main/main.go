@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	filepath := "../../Input.txt"
-	document := util.GetArrayFromFile(filepath)
+	filepath := util.GetDefaultFilePath()
+	document := util.ReadArrayFromFile(filepath)
 	result := trebuchet.GetCalibrationSum(document)
 	fmt.Println(result)
 }

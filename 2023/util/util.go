@@ -4,9 +4,26 @@ import (
 	"bufio"
 	"log"
 	"os"
+	"path/filepath"
 )
 
-func GetArrayFromFile(filepath string) []string {
+func GetDefaultFilePath() string {
+	wd, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
+	return filepath.Dir(filepath.Dir(wd)) + "/" + "Input.txt"
+}
+
+func GetFilePathFromSrc(filename string) string {
+	wd, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
+	return filepath.Dir(filepath.Dir(wd)) + "/" + filename
+}
+
+func ReadArrayFromFile(filepath string) []string {
 	file, err := os.Open(filepath)
 	if err != nil {
 		log.Fatal(err)
