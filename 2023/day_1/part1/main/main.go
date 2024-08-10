@@ -9,7 +9,6 @@ import (
 func main() {
 	filepath := util.GetDefaultFilePath()
 	document := util.ReadArrayFromFile(filepath)
-	result := trebuchet.GetCalibrationSum(document)
+	result := calibrationDigits.GetCalibrationSum(document)
 	fmt.Println(result)
 }
-
