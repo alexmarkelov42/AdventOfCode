@@ -8,13 +8,13 @@ import (
 )
 
 func FindFirstDigit(documentLine string) (int, int, error) {
-	for _, char := range documentLine {
+	for i, char := range documentLine {
 		if unicode.IsDigit(char) {
 			result, _ := strconv.Atoi(string(char))
-			return result, strings.Index(documentLine, string(char)), nil
+			return result, i, nil
 		}
 	}
-	return 0, 0, errors.New("No digit found")
+	return 0, len(documentLine), errors.New("No digit found")
 }
 
 func FindSecondDigit(documentLine string) (int, int, error) {
@@ -24,7 +24,7 @@ func FindSecondDigit(documentLine string) (int, int, error) {
 			return result, strings.Index(documentLine, string(documentLine[i])), nil
 		}
 	}
-	return 0, 0, errors.New("No digit found")
+	return 0, -1, errors.New("No digit found")
 }
 
 func GetCalibrationSum(document []string) int {
