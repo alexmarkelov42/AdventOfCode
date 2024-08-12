@@ -3,7 +3,6 @@ package calibrationDigits
 import (
 	"errors"
 	"strconv"
-	"strings"
 	"unicode"
 )
 
@@ -21,7 +20,7 @@ func FindSecondDigit(documentLine string) (int, int, error) {
 	for i := len(documentLine) - 1; i >= 0; i-- {
 		if unicode.IsDigit(rune(documentLine[i])) {
 			result, _ := strconv.Atoi(string(documentLine[i]))
-			return result, strings.Index(documentLine, string(documentLine[i])), nil
+			return result, i, nil
 		}
 	}
 	return 0, -1, errors.New("No digit found")
