@@ -7,7 +7,8 @@ import (
 )
 
 func main() {
-	filepath := util.GetFilePathFromSrc("testInput.txt")
+	filepath := util.GetFilePathFromSrc("Input.txt")
 	array := util.ReadArrayFromFile(filepath)
-	
+	sum := calibrationWords.GetCalibrationSumWithWords(array)
+	fmt.Println(sum)
 }
