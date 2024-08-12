@@ -16,7 +16,7 @@ import (
 func ConvertToInt(winNumbersStr []string) [][]int {
 	arr := make([][]int, len(winNumbersStr))
 	for i, str := range winNumbersStr {
-		var(
+		var (
 			ind = 0
 			tmp = 0
 			err error
@@ -26,7 +26,7 @@ func ConvertToInt(winNumbersStr []string) [][]int {
 			if err != nil {
 				break
 			}
-			
+
 			_, err := fmt.Sscan(str[ind:], &tmp)
 			if err == nil {
 				arr[i] = append(arr[i], tmp)
@@ -75,7 +75,7 @@ func GetNumberOfMatches(winNumbers, cardNumbers []int) int {
 		if slices.Contains(winNumbers, num) {
 			matches++
 		}
-	}	
+	}
 	return matches
 }
 

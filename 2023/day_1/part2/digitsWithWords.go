@@ -40,7 +40,7 @@ func getSecondDigit(line string) int {
 func FindSecondDigitWord(line string) (int, int) {
 	var (
 		digitWordIndex = 0
-		digitWord = 0
+		digitWord      = 0
 	)
 	for word, digit := range digits {
 		ind := 0

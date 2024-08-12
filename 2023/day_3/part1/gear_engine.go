@@ -86,8 +86,8 @@ func checkNeighbors(i int, numIndexes []int, data [][]byte) bool {
 	return false
 }
 
-func checkNeighbor(i1, i2 int, data [][]byte) bool{
-	if i1 < 0 || i2 < 0 || i1 > N - 1 || i2 > N - 1 {
+func checkNeighbor(i1, i2 int, data [][]byte) bool {
+	if i1 < 0 || i2 < 0 || i1 > N-1 || i2 > N-1 {
 		return false
 	}
 	if data[i1][i2] != '.' && !unicode.IsDigit(rune(data[i1][i2])) {

@@ -7,7 +7,7 @@ import (
 func GetTotalPointsWithCopies(winNumbers, cardNumbers [][]int) int {
 	var (
 		matches = 0
-		result = 0
+		result  = 0
 	)
 	cardCopies := make([]int, len(cardNumbers))
 	for i := range cardCopies {
@@ -30,7 +30,7 @@ func addNewCardCopies(cardCopies []int, i, matches, lenNumbers int) []int {
 		if k == lenNumbers {
 			break
 		} else {
-			cardCopies[k]+=cardCopies[i]
+			cardCopies[k] += cardCopies[i]
 		}
 
 	}

@@ -65,7 +65,7 @@ func gearRatio(row, col int, data [][]byte) int {
 	if len(numbers) == 2 {
 		num1 := getNumberFromCoords(numbers[0], data)
 		num2 := getNumberFromCoords(numbers[1], data)
-		fmt.Printf("%d) %d = %d * %d\n", row, num1 * num2, num1, num2)
+		fmt.Printf("%d) %d = %d * %d\n", row, num1*num2, num1, num2)
 		return num1 * num2
 
 	}

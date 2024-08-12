@@ -58,7 +58,7 @@ func getColor(token []byte) string {
 func isResultValid(number int, color string) bool {
 	result := []struct {
 		amount int
-		color string
+		color  string
 	}{
 		{12, "red"},
 		{13, "green"},

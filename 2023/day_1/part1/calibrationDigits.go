@@ -29,7 +29,7 @@ func FindSecondDigit(documentLine string) (int, int, error) {
 func GetCalibrationSum(document []string) int {
 	var sum = 0
 	for _, str := range document {
-		num1, _,  _ := FindFirstDigit(str)
+		num1, _, _ := FindFirstDigit(str)
 		num2, _, _ := FindSecondDigit(str)
 		sum += num1*10 + num2
 	}
