@@ -1,12 +1,11 @@
-package calibrationWords
+package part2
 
 import (
 	"strings"
-
-	calibrationDigits "gitlab.com/alexmarkelov42/AdventOfCode/2023/day_1/part1"
+	"gitlab.com/alexmarkelov42/AdventOfCode/2023/day_1/part1"
 )
 
-var digits = map[string]int{
+var digitWords = map[string]int{
 	"one":   1,
 	"two":   2,
 	"three": 3,
@@ -29,7 +28,7 @@ func GetCalibrationSumWithWords(array []string) int {
 }
 
 func getSecondDigit(line string) int {
-	digit, digitIndex, _ := calibrationDigits.FindSecondDigit(line)
+	digit, digitIndex, _ := part1.FindSecondDigit(line)
 	digitWord, digitWordIndex := FindSecondDigitWord(line)
 	if digitWordIndex > digitIndex {
 		return digitWord
@@ -42,7 +41,7 @@ func FindSecondDigitWord(line string) (int, int) {
 		digitWordIndex = 0
 		digitWord      = 0
 	)
-	for word, digit := range digits {
+	for word, digit := range digitWords {
 		ind := 0
 		n := 0
 		for ind != -1 {
@@ -60,7 +59,7 @@ func FindSecondDigitWord(line string) (int, int) {
 }
 
 func getFirstDigit(line string) int {
-	digit, digitIndex, _ := calibrationDigits.FindFirstDigit(line)
+	digit, digitIndex, _ := part1.FindFirstDigit(line)
 	digitWord, digitWordIndex := findFirstDigitWord(line)
 	if digitWordIndex < digitIndex {
 		return digitWord
@@ -73,7 +72,7 @@ func findFirstDigitWord(line string) (int, int) {
 		digitWord      = 0
 		digitWordIndex = len(line)
 	)
-	for word, digit := range digits {
+	for word, digit := range digitWords {
 		ind := strings.Index(line, word)
 		if ind != -1 {
 			if ind < digitWordIndex {

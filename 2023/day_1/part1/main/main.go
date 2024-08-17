@@ -9,6 +9,6 @@ import (
 func main() {
 	filepath := util.GetDefaultFilePath()
 	document := util.ReadArrayFromFile(filepath)
-	result := calibrationDigits.GetCalibrationSum(document)
+	result := part1.GetCalibrationSum(document)
 	fmt.Println(result)
 }

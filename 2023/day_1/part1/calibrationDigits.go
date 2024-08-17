@@ -1,4 +1,4 @@
-package calibrationDigits
+package part1
 
 import (
 	"errors"

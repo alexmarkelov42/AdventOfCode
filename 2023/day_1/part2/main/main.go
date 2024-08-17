@@ -9,6 +9,6 @@ import (
 func main() {
 	filepath := util.GetFilePathFromSrc("Input.txt")
 	array := util.ReadArrayFromFile(filepath)
-	sum := calibrationWords.GetCalibrationSumWithWords(array)
+	sum := part2.GetCalibrationSumWithWords(array)
 	fmt.Println(sum)
 }
