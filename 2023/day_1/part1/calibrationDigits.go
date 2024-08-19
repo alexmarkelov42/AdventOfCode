@@ -1,7 +1,10 @@
 package part1
 
 import (
+	"bufio"
 	"errors"
+	"log"
+	"os"
 	"strconv"
 	"unicode"
 )
@@ -26,11 +29,17 @@ func FindSecondDigit(documentLine string) (int, int, error) {
 	return 0, -1, errors.New("No digit found")
 }
 
-func GetCalibrationSum(document []string) int {
+func GetCalibrationSum(filename string) int {
 	var sum = 0
-	for _, str := range document {
-		num1, _, _ := FindFirstDigit(str)
-		num2, _, _ := FindSecondDigit(str)
+	file, err := os.Open(filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		num1, _, _ := FindFirstDigit(scanner.Text())
+		num2, _, _ := FindSecondDigit(scanner.Text())
 		sum += num1*10 + num2
 	}
 	return sum

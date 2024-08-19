@@ -1,7 +1,11 @@
 package part2
 
 import (
+	"bufio"
+	"log"
+	"os"
 	"strings"
+
 	"gitlab.com/alexmarkelov42/AdventOfCode/2023/day_1/part1"
 )
 
@@ -17,11 +21,17 @@ var digitWords = map[string]int{
 	"nine":  9,
 }
 
-func GetCalibrationSumWithWords(array []string) int {
+func GetCalibrationSumWithWords(filename string) int {
 	var sum = 0
-	for _, str := range array {
-		num1 := getFirstDigit(str)
-		num2 := getSecondDigit(str)
+	file, err := os.Open(filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer file.Close()
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		num1 := getFirstDigit(scanner.Text())
+		num2 := getSecondDigit(scanner.Text())
 		sum += num1*10 + num2
 	}
 	return sum

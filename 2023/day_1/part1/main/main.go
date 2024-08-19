@@ -7,8 +7,6 @@ import (
 )
 
 func main() {
-	filepath := util.GetDefaultFilePath()
-	document := util.ReadArrayFromFile(filepath)
-	result := part1.GetCalibrationSum(document)
+	result := part1.GetCalibrationSum(util.GetDefaultFilePath())
 	fmt.Println(result)
 }
