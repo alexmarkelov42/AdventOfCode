@@ -1,16 +1,15 @@
-package main
+package part1
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 	"regexp"
 	"strconv"
 )
 
-func main() {
-	file, err := os.Open("../Input.txt")
+func FindSumOfGames(filename string) int {
+	file, err := os.Open(filename)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -26,7 +25,7 @@ func main() {
 			sum += getGameId(line)
 		}
 	}
-	fmt.Println(sum)
+	return sum
 }
 
 func getGameId(input string) int {
