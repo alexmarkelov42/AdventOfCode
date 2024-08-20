@@ -1,28 +1,27 @@
-package main
+package part2
 
 import (
 	"bufio"
-	"fmt"
 	"log"
 	"os"
 	"regexp"
 	"strconv"
 )
 
-func main() {
-	file, err := os.Open("../Input.txt")
+func FindSumOfAllMinimumSets(filename string) int {
+	file, err := os.Open(filename)
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer file.Close()
-	result := 0
+	sum := 0
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		line := scanner.Text()
 		cubes := getSetsOfCubes(line)
-		result += findPowerOfCubeSet(cubes)
+		sum += findPowerOfCubeSet(cubes)
 	}
-	fmt.Println(result)
+	return sum
 }
 
 func findPowerOfCubeSet(cubes [][]byte) int {
