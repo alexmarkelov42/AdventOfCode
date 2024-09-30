@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	result := day4_part1.FindHash("pqrstuv")
+	result := day4_part1.FindHash("../../input.txt")
 	fmt.Println(result)
 }
