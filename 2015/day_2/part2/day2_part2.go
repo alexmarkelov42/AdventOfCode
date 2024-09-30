@@ -25,7 +25,7 @@ func TotalRibon(filename string) (total int) {
 		sort.Slice(dims, func(i, j int) bool {
 			return dims[i] < dims[j]
 		})
-		result := 2 * dims[0] + 2 * dims[1] + dims[0] * dims[1] * dims[2]
+		result := 2*dims[0] + 2*dims[1] + dims[0]*dims[1]*dims[2]
 		total += result
 	}
 	return total

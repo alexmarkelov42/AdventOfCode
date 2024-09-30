@@ -1,8 +1,8 @@
 package main
 
 import (
-	"gitlab.com/alexmarkelov42/AdventOfCode/2015/day_1/part1"
 	"fmt"
+	"gitlab.com/alexmarkelov42/AdventOfCode/2015/day_1/part1"
 )
 
 func main() {

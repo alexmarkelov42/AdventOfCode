@@ -28,7 +28,7 @@ func TotalSquareFeet(filename string) (total int) {
 		num1 := l * w
 		num2 := l * h
 		num3 := w * h
-		square := 2 * num1 + 2 * num2 + 2 * num3 + min(num1, num2, num3)
+		square := 2*num1 + 2*num2 + 2*num3 + min(num1, num2, num3)
 		total += square
 	}
 	return total

@@ -27,7 +27,7 @@ func CountHouses(filename string) (total int) {
 		if err != nil {
 			break
 		}
-		switch(ch) {
+		switch ch {
 		case '>':
 			x++
 		case '<':
@@ -43,7 +43,7 @@ func CountHouses(filename string) (total int) {
 			houses = append(houses, newHouse)
 			total += 1
 		}
-		
+
 	}
 	return total
 }
