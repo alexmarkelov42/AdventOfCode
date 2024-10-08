@@ -1,0 +1,5 @@
+* AdventOfCode
+
+Implementation of projects from [[https://adventofcode.com][AoC]] in Golang
+
+
