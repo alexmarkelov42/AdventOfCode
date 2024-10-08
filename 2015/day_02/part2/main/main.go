@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"gitlab.com/alexmarkelov42/AdventOfCode/2015/day_2/part2"
+	"gitlab.com/alexmarkelov42/AdventOfCode/2015/day_02/part2"
 )
 
 func main() {
